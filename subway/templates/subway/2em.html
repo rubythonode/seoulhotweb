@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>현재 한산 순위</title>
+</head>
+<body>
+{{ now}}
+<br>
+{% for sts in blist %}
+    {% if forloop.counter < 11%}
+    {{ forloop.counter }}위
+    {% for st in sts %}
+        {%  ifequal forloop.counter 3 %}
+            {{ st }}
+        {% endifequal %}
+        {%  ifequal forloop.counter 4 %}
+            {{ st }}
+        {% endifequal %}
+        {%  ifequal forloop.counter time %}
+            {{ st }}명
+            <br>
+        {% endifequal %}
+    {% endfor %}
+    {% endif %}
+{% endfor %}
+</body>
+</html>
