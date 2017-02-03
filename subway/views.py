@@ -179,158 +179,18 @@ def main(request):
 
     dayString = ['월', '화', '수', '목', '금', '토', '일']
 
-    template_name  = 'subway/main.html'
+    template_name  = 'subway/index.html'
 
     qs = SubwayModel.objects.filter(date="2014-"+str(now.month)+'-'+str(now.day))
 
     biggest = 0
-
-    if now.hour and (now.hour == 0):
-        for query in qs:
-            if query.population0 >  biggest:
-                biggest = query.population0
-        qs = qs.get(population0=biggest)
-
-    elif now.hour and (now.hour == 1):
-        for query in qs:
-            if query.population1 >  biggest:
-                biggest = query.population1
-        qs = qs.get(population1=biggest)
-
-    elif now.hour and (now.hour == 2):
-        for query in qs:
-            if query.population2 >  biggest:
-                biggest = query.population2
-        qs = qs.get(population2=biggest)
-
-    elif now.hour and (now.hour == 3):
-        for query in qs:
-            if query.population3 >  biggest:
-                biggest = query.population0
-        qs = qs.get(population3=biggest)
-
-    elif now.hour and (now.hour == 4):
-        for query in qs:
-            if query.population4 >  biggest:
-                biggest = query.population4
-        qs = qs.get(population4=biggest)
-
-    elif now.hour and (now.hour == 5):
-        for query in qs:
-            if query.population5 >  biggest:
-                biggest = query.population5
-        qs = qs.get(population5=biggest)
-
-    elif now.hour and (now.hour == 6):
-        for query in qs:
-            if query.population6 >  biggest:
-                biggest = query.population6
-        qs = qs.get(population6=biggest)
-
-    elif now.hour and (now.hour == 7):
-        for query in qs:
-            if query.population7 >  biggest:
-                biggest = query.population7
-        qs = qs.get(population7=biggest)
-
-    elif now.hour and (now.hour == 8):
-        for query in qs:
-            if query.population8 >  biggest:
-                biggest = query.population8
-        qs = qs.get(population8=biggest)
-
-    elif now.hour and (now.hour == 9):
-        for query in qs:
-            if query.population9 >  biggest:
-                biggest = query.population9
-        qs = qs.get(population9=biggest)
-
-    elif now.hour and (now.hour == 10):
-        for query in qs:
-            if query.population10 >  biggest:
-                biggest = query.population10
-        qs = qs.get(population10=biggest)
-
-    elif now.hour and (now.hour == 11):
-        for query in qs:
-            if query.population11 >  biggest:
-                biggest = query.population11
-        qs = qs.get(population11=biggest)
-
-
-    elif now.hour and (now.hour == 12):
-        for query in qs:
-            if query.population12 >  biggest:
-                biggest = query.population12
-        qs = qs.get(population12=biggest)
-
-    elif now.hour and (now.hour == 13):
-        for query in qs:
-            if query.population13 >  biggest:
-                biggest = query.population13
-        qs = qs.get(population13=biggest)
-
-    elif now.hour and (now.hour == 14):
-        for query in qs:
-            if query.population14 >  biggest:
-                biggest = query.population14
-        qs = qs.get(population14=biggest)
-
-    elif now.hour and (now.hour == 15):
-        for query in qs:
-            if query.population15 >  biggest:
-                biggest = query.population15
-        qs = qs.get(population15=biggest)
-
-    elif now.hour and (now.hour == 16):
-        for query in qs:
-            if query.population16 >  biggest:
-                biggest = query.population16
-        qs = qs.get(population16=biggest)
-
-    elif now.hour and (now.hour == 17):
-        for query in qs:
-            if query.population17 >  biggest:
-                biggest = query.population17
-        qs = qs.get(population17=biggest)
-
-    elif now.hour and (now.hour == 18):
-        for query in qs:
-            if query.population18 >  biggest:
-                biggest = query.population18
-        qs = qs.get(population18=biggest)
-
-    elif now.hour and (now.hour == 19):
-        for query in qs:
-            if query.population19 >  biggest:
-                biggest = query.population19
-        qs = qs.get(population19=biggest)
-
-    elif now.hour and (now.hour == 20):
-        for query in qs:
-            if query.population20 >  biggest:
-                biggest = query.population20
-        qs = qs.get(population20=biggest)
-
-    elif now.hour and (now.hour == 21):
-        for query in qs:
-            if query.population21 >  biggest:
-                biggest = query.population21
-        qs = qs.get(population21=biggest)
-
-    elif now.hour and (now.hour == 22):
-        for query in qs:
-            if query.population22 >  biggest:
-                biggest = query.population22
-        qs = qs.get(population22=biggest)
-
-    elif now.hour and (now.hour == 23):
-        for query in qs:
-            if query.population23 >  biggest:
-                biggest = query.population23
-        qs = qs.get(population23=biggest)
-
-    print(qs.station)
+    small_pk = 0
+    values = 'query.population' + str(now.hour)
+    for query in qs:
+        if eval(values) > biggest:
+            biggest = eval(values)
+            small_pk = query.id
+    qs = qs.get(id=small_pk)
 
     context = {"station" : qs}
 

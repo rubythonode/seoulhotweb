@@ -1,0 +1,78 @@
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static "subway/css/main.css" %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+
+		<style>
+		#forum{
+		background-color: #2a2f4a;
+		text-align: center;
+		align-items: center;
+		}
+		</style>
+  </head>
+
+
+  <body>
+    <div id="wrapper">
+
+      <!-- Header -->
+        <header id="header" class="alt">
+          <a href="{% url "subway:index" %}" class="logo"><strong>Seoul Hot</strong> <span>by 잠못자는사람들</span></a>
+          <nav>
+            <a href="#menu">Menu</a>
+          </nav>
+        </header>
+
+      <!-- Menu -->
+        <nav id="menu">
+          <ul class="links">
+            <li><a href="history/history.html">History</a></li>
+            <li><a href="department.html">Department</a></li>
+            <li><a href="gallery/gallery index.html">Gallery</a></li>
+            <li><a href="elements.html">Contact</a></li>
+          </ul>
+          <ul class="actions vertical">
+            <li><a href="signup.html" class="button fit">Sign Up</a></li>
+            <li><a href="login.html" class="button fit">Log In</a></li>
+          </ul>
+        </nav>
+    {% block body %}
+    {% endblock %}
+    <footer id="footer">
+      <div class="inner">
+        <ul class="icons">
+          <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+          <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="index.html">NOVELER</a></li>
+
+        </ul>
+      </div>
+    </footer>
+
+  </body>
+
+  <script src="{% static "subway/js/jquery.min.js" %}"></script>
+  <script src="{% static "subway/js/jquery.scrolly.min.js" %}"></script>
+  <script src="{% static "subway/js/jquery.scrollex.min.js" %}"></script>
+  <script src="{% static "subway/js/skel.min.js" %}"></script>
+  <script src="{% static "subway/js/util.js" %}"></script>
+  <!--[if lte IE 8]><script src="subway/js/ie/respond.min.js"></script><![endif]-->
+  <script src="{% static "subway/js/main.js" %}"></script>
+
+</html>

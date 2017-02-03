@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from .views import SubwayLV, subway_lazy, subway_now,main,bsbusy,bsempty,bsmy,bsvs,bscm,bsfd
 
+app_name='subway'
 urlpatterns = [
     url(r'^$', main, name='index'),
     url(r'busy/$', SubwayLV, name='busy'),

@@ -25,7 +25,7 @@ SECRET_KEY = '%zdz514cat9--mx(y#k+$!gq@+26*--j%7ibh%lfmvsy)@f#lm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['drexly.pythonanywhere.com']#pythonanywhere
+ALLOWED_HOSTS = ['drexly.pythonanywhere.com', 'seoulhot-psypu.c9users.io' ]#pythonanywhere
 
 
 # Application definition
@@ -121,3 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')# for pythonanywhere
+
+DJANGO_SETTINGS_MODULE = 'seoulhotver2.settings.py'
+
