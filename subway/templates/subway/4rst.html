@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% load compute %}
-        <!--bs 합쳐지고 최소화된 최신 CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        {% load compute %}
+
+    <meta charset="UTF-8">
+    <title>{{ context.2 }}핫플 비교 결과</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- 부가적인 테마 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
     <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8">
-    <title>현재 혼잡 순위</title>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
@@ -37,7 +38,10 @@
                 <ul class="nav navbar-nav">
                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
-                        <a class="page-scroll" href="../"></a>
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                               <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="../1bz">핫플 순위</a>
@@ -73,44 +77,31 @@
     <br>
     <br>
    <br>
-
-    <div align="center">
-    <div class="jumbotron">
+<div align="center">
+    <div class="jumbotron" align="center">
         <br>
-  <h2>{{ now }}</h2>
+  <h2>{{ now.0 }} ,{{ now.1 }} 현재</h2>
 </div>
-{% for sts in blist %}
+{% for sts in context%}
     {% if forloop.counter < 11%}
 {% ifequal forloop.counter 1 %}
      <div class="panel panel-primary">
                       {% else %}
   <div class="panel panel-info">
   {% endifequal %}
-    <div class="panel-heading">{{ forloop.counter }}위</div>
+    <div class="panel-heading">{{ sts.0 }}</div>
 
 
 
 <div class="panel-body">
-    {% for st in sts %}
-        {%  ifequal forloop.counter 3 %}
-            {{ st }}
-        {% endifequal %}
-        {%  ifequal forloop.counter 4 %}
-            <h4>{{ st }}</h4>
-        {% endifequal %}
-        {%  ifequal forloop.counter time %}
-            <h3>{{ st }}명</h3> (현재 일 중 {{ st|percent:sts.28 }}%)
-                        <div class="progress">
-  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow={{ st|percent:sts.28 }}   aria-valuemin="0" aria-valuemax="100" style="width: {{ st|percent:sts.28 }}%">
-    <span class="sr-only">현재 일 중 {{ st|percent:sts.28 }} %</span>
+
+<h4>{{ sts.1 }} {{ sts.2 }} 현 인원 {{ sts.3 }}명</h4>
+<h5>금일 누적인원 {{ sts.4 }}명 대비 현 인원 혼잡도 {{ sts.5 }}%</h5>
+<div class="progress">
+  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow={{ sts.5 }}   aria-valuemin="0" aria-valuemax="100" style="width:{{ sts.5 }}%">
+    <span class="sr-only">현재 일 중 {{ sts.5 }} %</span>
   </div>
 </div>
-        {% endifequal %}
-        {%  ifequal forloop.counter 29%}
-            당일 누적 {{ st }}명
-            <br>
-        {% endifequal %}
-    {% endfor %}
 </div>
   </div>
         </div>
