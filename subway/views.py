@@ -424,7 +424,7 @@ def bsmy(request):
                 context=[daytmp,qry[2], qry[3], qry[time + 4],qry[28]]
                 break
 
-        return render(request, 'subway/3rst.html', {'context': context})
+        return render(request, 'subway/4rst.html', {'context': context})
     return render(request, 'subway/3my.html', {'context': checked_value})
 
 def bsvs(request):

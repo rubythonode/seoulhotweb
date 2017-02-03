@@ -25,7 +25,10 @@ SECRET_KEY = '%zdz514cat9--mx(y#k+$!gq@+26*--j%7ibh%lfmvsy)@f#lm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = ['drexly.pythonanywhere.com', 'seoulhot-psypu.c9users.io' ]#pythonanywhere
+
+
 
 
 # Application definition
