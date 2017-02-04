@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="{% static "subway/css/main.css" %}" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		{% block head %}{% endblock %}
 
 		<style>
 		#forum{
@@ -36,14 +37,15 @@
       <!-- Menu -->
         <nav id="menu">
           <ul class="links">
-            <li><a href="history/history.html">History</a></li>
-            <li><a href="department.html">Department</a></li>
-            <li><a href="gallery/gallery index.html">Gallery</a></li>
-            <li><a href="elements.html">Contact</a></li>
-          </ul>
-          <ul class="actions vertical">
-            <li><a href="signup.html" class="button fit">Sign Up</a></li>
-            <li><a href="login.html" class="button fit">Log In</a></li>
+            <li><a href="{% url 'subway:1bz' %}">핫플 순위</a></li>
+            <li><a href="{% url 'subway:2em' %}">콜플 순위</a></li>
+            <li><a href="{% url 'subway:3my' %}">여긴 핫플?</a></li>
+            <li><a href="{% url 'subway:4vs' %}">핫플 비교</a></li>
+            <li><a href="{% url 'subway:5vs' %}">통근 / 통학</a></li>
+            <li><a href="{% url 'subway:6fd' %}">이달의 불금</a></li>
+            <li><a href="{% url 'subway:chat' %}">핫플 채팅</a></li>
+            <li><a href="{% url 'subway:search' %}">핫플 검색</a></li>
+            
           </ul>
         </nav>
     {% block body %}

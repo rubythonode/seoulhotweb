@@ -61,11 +61,11 @@
                      <li>
                         <a class="page-scroll" href="../6fd">이달의 불금</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#replier">핫플 채팅</a>
+                     <li>
+                        <a class="page-scroll" href="../chat">핫플 채팅</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#total">핫플 검색</a>
+                        <a class="page-scroll" href="../search">핫플 검색</a>
                     </li>
                 </ul>
             </div>
@@ -108,5 +108,15 @@
     {% endif %}
 {% endfor %}
     </div>
+    <script type="text/javascript" >
+        
+    var station_name="{{qq}}";
+    if (!station_name) station_name = "*";
+    var date = new Date();
+    var from = "2014-" + (date.getMonth()+1) + "-" + date.getDate() + " 05:00";
+    var to = "2014-" + (date.getMonth()+1) + "-" + date.getDate() + " 24:00";
+    var address = "http://52.79.129.249:5601/app/kibana#/dashboard/5ef74320-e9c9-11e6-8533-03a0eed8e2d4?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'" + from + "',mode:absolute,to:'" + to + "'))&_a=(filters:!(),options:(darkTheme:!f),panels:!((col:1,id:%2761d86e40-e9c2-11e6-8533-03a0eed8e2d4%27,panelIndex:1,row:1,size_x:3,size_y:4,type:visualization),(col:4,id:fc53c190-e9c7-11e6-8533-03a0eed8e2d4,panelIndex:2,row:1,size_x:9,size_y:3,type:visualization),(col:4,id:%276c0a3c80-e9c8-11e6-8533-03a0eed8e2d4%27,panelIndex:3,row:4,size_x:4,size_y:2,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:'" + station_name + "')),title:%27%EC%84%A0%ED%83%9D%20%EC%97%AD%20%EA%B0%84%20%EB%B9%84%EA%B5%90%27,uiState:(P-1:(vis:(params:(sort:(columnIndex:!n,direction:!n))))))"
+    window.open(address,"_blank");
+    </script>
 </body>
 </html>

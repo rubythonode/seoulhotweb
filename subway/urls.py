@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import SubwayLV, subway_lazy, subway_now,main,bsbusy,bsempty,bsmy,bsvs,bscm,bsfd
+from .views import SubwayLV, subway_lazy, subway_now,main,bsbusy,bsempty,bsmy,bsvs,bscm,bsfd,bsch,bssh
 
 app_name='subway'
 urlpatterns = [
@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'4vs/$', bsvs, name='4vs'),
     url(r'5cm/$', bscm, name='5vs'),
     url(r'6fd/$', bsfd, name='6fd'),
-
+    url(r'chat/$', bsch, name='chat'),
+    url(r'search/$', bssh, name='search'),
 ]

@@ -421,10 +421,10 @@ def bsmy(request):
         exact = []
         for qry in todaylist:
             if qry[0].endswith(date) and str(qry[3]).__contains__(name):
-                context=[daytmp,qry[2], qry[3], qry[time + 4],qry[28]]
+                context=[daytmp,qry[2], qry[3], qry[time + 4],round((qry[time + 4]/qry[28])*100,2)]
                 break
 
-        return render(request, 'subway/4rst.html', {'context': context})
+        return render(request, 'subway/3rst.html', {'context': context})
     return render(request, 'subway/3my.html', {'context': checked_value})
 
 def bsvs(request):
@@ -438,7 +438,11 @@ def bsvs(request):
         time = int(daytmp[1][0:2])
         names = checked_value
         #########################
-
+        qq=''
+        for ii,nm in enumerate(names):
+            qq+=nm
+            if ii < len(names)-1:
+                qq+=' or '
         f = codecs.open('2014.txt', 'r', encoding='euc-kr')
         dayString = ['월', '화', '수', '목', '금', '토', '일']
         todaylist = []
@@ -492,7 +496,7 @@ def bsvs(request):
         sortrst = sorted(exact, key=operator.itemgetter(4), reverse=True)
         for ind, t in enumerate(sortrst):
             rst.append([str(ind + 1)+"위", t[2], t[3], t[4],t[5],round(t[4]/t[5]*100,2)])
-        return render(request, 'subway/4rst.html', {'context': rst,'now':daytmp})
+        return render(request, 'subway/4rst.html', {'context': rst,'now':daytmp,'qq':qq})
     return render(request, 'subway/4vs.html', {'context': checked_value})
     #return render(request, 'subway/3rst.html', {'context': context})
 
@@ -655,3 +659,11 @@ def bsfd(request):
 
         return render(request, 'subway/6rst.html', {'yr': year, 'mth': month, 'dat': sortrst, 'dday': dday,'name':name})
     return render(request, 'subway/6fd.html', {'context': checked_value})
+    
+def bsch(request):
+    return render(request, 'subway/chat.html')
+    
+def bssh(request):
+    return render(request, 'subway/search.html')
+
+

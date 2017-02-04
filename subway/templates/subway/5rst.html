@@ -59,11 +59,11 @@
                      <li>
                         <a class="page-scroll" href="../6fd">이달의 불금</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#replier">핫플 채팅</a>
+                     <li>
+                        <a class="page-scroll" href="../chat">핫플 채팅</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#total">핫플 검색</a>
+                        <a class="page-scroll" href="../search">핫플 검색</a>
                     </li>
                 </ul>
             </div>
@@ -128,6 +128,15 @@
 {% endfor %}
     </div>
 
-
+<script type="text/javascript" >
+        
+    var station_name="{{name}}";
+    if (!station_name) station_name = "*";
+    var date = new Date();
+    var from = "2014-" + (date.getMonth()+1) + "-" + date.getDate() + " 05:00";
+    var to = "2014-" + (date.getMonth()+1) + "-" + date.getDate() + " 24:00";
+    var address = "http://52.79.129.249:5601/app/kibana#/dashboard/4711c420-e9c3-11e6-8533-03a0eed8e2d4?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:'" + from + "',mode:absolute,to:'" + to + "'))&_a=(filters:!(),options:(darkTheme:!f),panels:!((col:7,id:%273e739bf0-e9c2-11e6-8533-03a0eed8e2d4%27,panelIndex:1,row:7,size_x:6,size_y:4,type:visualization),(col:9,id:ddb6c9d0-e9c2-11e6-8533-03a0eed8e2d4,panelIndex:2,row:1,size_x:4,size_y:4,type:visualization),(col:1,id:%2712b94dc0-e9c2-11e6-8533-03a0eed8e2d4%27,panelIndex:3,row:3,size_x:8,size_y:2,type:visualization),(col:1,id:%270f124950-e9c3-11e6-8533-03a0eed8e2d4%27,panelIndex:4,row:5,size_x:8,size_y:2,type:visualization),(col:1,id:%2761d86e40-e9c2-11e6-8533-03a0eed8e2d4%27,panelIndex:5,row:7,size_x:6,size_y:5,type:visualization),(col:6,id:%272b967000-e9c4-11e6-8533-03a0eed8e2d4%27,panelIndex:6,row:1,size_x:3,size_y:2,type:visualization),(col:1,id:%2704c4bc10-e9c5-11e6-8533-03a0eed8e2d4%27,panelIndex:7,row:1,size_x:5,size_y:2,type:visualization)),query:(query_string:(analyze_wildcard:!t,query:'" + station_name + "')),title:%27%EC%84%9C%EC%9A%B8%20%EC%A7%80%ED%95%98%EC%B2%A0%20%EB%8D%B0%EC%9D%B4%ED%84%B0%27,uiState:(P-1:(vis:(params:(sort:(columnIndex:!n,direction:!n)))),P-2:(vis:(legendOpen:!f)),P-3:(vis:(legendOpen:!f)),P-4:(vis:(legendOpen:!f)),P-5:(vis:(params:(sort:(columnIndex:!n,direction:!n))))))"
+    window.open(address,"_blank");
+    </script>
 </body>
 </html>
